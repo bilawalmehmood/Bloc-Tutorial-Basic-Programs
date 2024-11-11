@@ -14,6 +14,7 @@ class FavouriteBloc extends Bloc<FavouriteEvent, FavouriteState>{
     on<FetchFavouriteList>(_onFetchFavouriteList);
     on<UpdateFavouriteStatus>(_onUpdateFavouriteStatus);
     on<UpdateSelectedStatus>(_onUpdateSelectedStatus);
+    on<DeleteFavourite>(_onDeleteFavourite);
   }
 
   void _onFetchFavouriteList(FetchFavouriteList event, Emitter<FavouriteState> emit) async{
@@ -36,5 +37,12 @@ class FavouriteBloc extends Bloc<FavouriteEvent, FavouriteState>{
     final updatedSeletedItems =List<FavouriteModel>.from(state.favourites)..[index] = updatedSelected;
     emit(state.copyWith(favourites: updatedSeletedItems, status: Status.success));
   }
+
+  void _onDeleteFavourite(DeleteFavourite event, Emitter<FavouriteState> emit) {
+    emit(state.copyWith(status: Status.loading));
+    final List<FavouriteModel> updatedFavourites = state.favourites.where((element) => !element.isSelected).toList();
+    emit(state.copyWith(favourites:updatedFavourites, status: Status.success));
+  }
+
 
 }

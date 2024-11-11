@@ -79,7 +79,12 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
         }
       }),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          if (context.read<FavouriteBloc>().state.favourites
+              .any((element) => element.isSelected)) {
+            context.read<FavouriteBloc>().add(DeleteFavourite());
+          }
+        },
         child: const Icon(Icons.delete),
       ),
     );

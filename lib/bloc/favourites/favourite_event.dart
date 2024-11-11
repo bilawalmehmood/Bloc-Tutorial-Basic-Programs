@@ -25,3 +25,5 @@ class UpdateSelectedStatus extends FavouriteEvent {
   @override
   List<Object> get props => [item];
 }
+
+class DeleteFavourite extends FavouriteEvent {}
