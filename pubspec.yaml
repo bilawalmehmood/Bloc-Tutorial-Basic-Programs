@@ -42,6 +42,13 @@ dependencies:
   http: ^1.2.2
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
+  fluttertoast: ^8.2.8
+  cached_network_image: ^3.4.1
+  another_flushbar: ^1.12.30
+  # flutter_secure_storage: ^4.2.1
+  get_it: ^8.0.2
+  go_router: ^14.6.0
+  loading_animation_widget: ^1.3.0
 
 dev_dependencies:
   flutter_test:
